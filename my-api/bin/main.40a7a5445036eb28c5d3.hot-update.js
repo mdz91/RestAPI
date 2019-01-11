@@ -1,0 +1,16 @@
+exports.id = "main";
+exports.modules = {
+
+/***/ "./src/main.ts":
+/*!*********************!*\
+  !*** ./src/main.ts ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst core_1 = __webpack_require__(/*! @nestjs/core */ \"@nestjs/core\");\nconst swagger_1 = __webpack_require__(/*! @nestjs/swagger */ \"@nestjs/swagger\");\nconst app_module_1 = __webpack_require__(!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'app.module'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nfunction bootstrap() {\n    return __awaiter(this, void 0, void 0, function* () {\n        const app = yield core_1.NestFactory.create(app_module_1.AppModule);\n        const options = new swagger_1.DocumentBuilder()\n            .setTitle('Cats example')\n            .setDescription('The cats API description')\n            .setVersion('1.0')\n            .addTag('cats')\n            .build();\n        const document = swagger_1.SwaggerModule.createDocument(app, options);\n        swagger_1.SwaggerModule.setup('api', app, document);\n        yield app.listen(3001);\n    });\n}\nbootstrap();\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvbWFpbi50cy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9tYWluLnRzP2NkNDkiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmVzdEZhY3RvcnkgfSBmcm9tICdAbmVzdGpzL2NvcmUnO1xuaW1wb3J0IHtTd2FnZ2VyTW9kdWxlLCBEb2N1bWVudEJ1aWxkZXIgfSBmcm9tICdAbmVzdGpzL3N3YWdnZXInO1xuaW1wb3J0IHsgQXBwTW9kdWxlIH0gZnJvbSAnYXBwLm1vZHVsZSc7XG5pbXBvcnQgeyBQb3N0LCBCb2R5IH0gZnJvbSAnQG5lc3Rqcy9jb21tb24nO1xuaW1wb3J0IHtDYXRzQ29udHJvbGxlcn0gZnJvbSAnY2F0cy9jYXRzLmNvbnRyb2xsZXInO1xuXG5hc3luYyBmdW5jdGlvbiBib290c3RyYXAoKSB7XG4gIGNvbnN0IGFwcCA9IGF3YWl0IE5lc3RGYWN0b3J5LmNyZWF0ZShBcHBNb2R1bGUpO1xuICBjb25zdCBvcHRpb25zID0gbmV3IERvY3VtZW50QnVpbGRlcigpXG4gIC5zZXRUaXRsZSgnQ2F0cyBleGFtcGxlJylcbiAgLnNldERlc2NyaXB0aW9uKCdUaGUgY2F0cyBBUEkgZGVzY3JpcHRpb24nKVxuICAuc2V0VmVyc2lvbignMS4wJylcbiAgLmFkZFRhZygnY2F0cycpXG4gIC5idWlsZCgpO1xuXG4gIGNvbnN0IGRvY3VtZW50ID0gU3dhZ2dlck1vZHVsZS5jcmVhdGVEb2N1bWVudChhcHAsIG9wdGlvbnMpO1xuICBTd2FnZ2VyTW9kdWxlLnNldHVwKCdhcGknLCBhcHAsIGRvY3VtZW50KTtcblxuICBhd2FpdCBhcHAubGlzdGVuKDMwMDEpO1xufVxuXG5ib290c3RyYXAoKTtcbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7OztBQUFBO0FBQ0E7QUFDQTtBQUlBOztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUVBO0FBQ0E7QUFBQTtBQUVBOyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/main.ts\n");
+
+/***/ })
+
+};
