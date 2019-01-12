@@ -1,6 +1,5 @@
 --- 
 before_script: 
-  - "sudo yarn global add tslint typescript"
   - "npm install"
 language: node_js
 node_js: 
