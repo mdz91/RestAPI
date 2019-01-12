@@ -3,7 +3,13 @@ node_js:
 - '8'
 - '7'
 
+env: 
+- TEST_DIR=client
+- TEST_DIR=server
 
-notifications: 
-  on_success: always # default: change
-  on_failure: always # default: always
+before_script:
+- cd $TEST_DIR
+- npm install
+
+script:
+-npm run lint
