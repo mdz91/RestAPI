@@ -1,6 +1,7 @@
 --- 
 before_script: 
-  - npm install
+  - "sudo yarn global add tslint typescript"
+  - "npm install"
 language: node_js
 node_js: 
   - "7"
