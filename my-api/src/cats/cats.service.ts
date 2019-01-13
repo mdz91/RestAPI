@@ -1,30 +1,30 @@
-import {Injectable} from '@nestjs/common';
-import { Cat } from 'Interfaces/cat.interface';
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository, UpdateResult, DeleteResult } from 'typeorm';
+import { Cat } from './cat.entity';
+import { CreateCatDto } from './create-cat.dto';
+import { UpdateCatDto } from './update-cat.dto';
 
 @Injectable()
 export class CatsService {
-    private readonly cats: Cat[] = [];
 
-    create(cat: Cat) {
-        this.cats.push(cat);
+constructor(
+    @InjectRepository(Cat)
+    private readonly cats: Repository<Cat>) { }
+
+    async create(creatCatDto: CreateCatDto): Promise<CreateCatDto> {
+     return await this.cats.save(creatCatDto);
     }
 
-    // tslint:disable-next-line:ban-types
-    findAll(): Cat[] {
-        return this.cats;
+    async findAll(): Promise<Cat[]>{
+        return await this.cats.find();
     }
 
-    // tslint:disable-next-line:ban-types
-    delete(id: String): Cat[] {
-        for (let i = 0; i < this.cats.length; i++) {
-            if (this.cats[i].id === id) {
-            delete this.cats[i];
-            }
-            else {
-            // tslint:disable-next-line:no-console
-            console.log('Cats bestaan niet');
-            }
-        }
-        return null;
+   async update(id: string, updateCatDto: UpdateCatDto): Promise<UpdateResult> {
+        return await this.cats.update(id, updateCatDto);
     }
+
+  async remove(id: string): Promise<DeleteResult> {
+      return await this.cats.delete(id);
+  }
 }

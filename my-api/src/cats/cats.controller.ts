@@ -1,9 +1,14 @@
-import {Controller, Get, Req, Post, HttpCode, Body, Put, Delete, Param, HttpStatus} from '@nestjs/common';
+import {Controller, Get, Req, Post, HttpCode, Body, Put, Delete, Param, HttpStatus, UsePipes} from '@nestjs/common';
 import { create } from 'domain';
 import {CatsService} from './cats.service';
 import {Cat} from 'Interfaces/cat.interface';
-import { CreatCatDto } from './create-cat.dto';
+import { CreateCatDto } from './create-cat.dto';
 import {  ApiUseTags, ApiBearerAuth, ApiResponse, ApiOperation } from '@nestjs/swagger';
+import { identity } from 'rxjs';
+import { JoiValidationPipe } from './JoiValidationPipe';
+import { DeleteCatDto } from './delete-cat.dto';
+import { DeleteResult, UpdateResult } from 'typeorm';
+import { UpdateCatDto } from './update-cat.dto';
 
 @ApiUseTags('cats')
 @ApiBearerAuth()
@@ -13,8 +18,8 @@ constructor(private readonly catsService: CatsService) {}
      @Post()
      @ApiResponse({ status: HttpStatus.CREATED, type: Cat})
      @ApiResponse({ status: HttpStatus.BAD_REQUEST, type: Cat})
-     async create(@Body() createCatDto: CreatCatDto) {
-        this.catsService.create(createCatDto);
+     async create(@Body() request: CreateCatDto): Promise<CreateCatDto> {
+       return await this.catsService.create(request);
     }
 
     @Get()
@@ -24,9 +29,14 @@ constructor(private readonly catsService: CatsService) {}
         return await this.catsService.findAll();
     }
 
-    @Delete(':id')
-   async remove(@Param('id') id: string) {
-    return this.catsService.delete(id);
+    @Put()
+    async update(@Body() request: UpdateCatDto): Promise<UpdateResult> {
+        return await this.catsService.update(request.id, request);
+    }
+
+    @Delete()
+   async deleteCat(@Body() request: DeleteCatDto): Promise<DeleteResult> {
+    return await this.catsService.remove(request.id);
     }
 
 }
