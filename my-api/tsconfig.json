@@ -15,8 +15,7 @@
     "baseUrl": "./src"
   },
   "files": [
-    "src/main.ts",
-    "src/User.ts"
+    "src/main.ts"
   ],
   "include": [
     "src/**/*"
