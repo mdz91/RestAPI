@@ -1,12 +1,14 @@
 --- 
 before_script: 
   - "cd $TEST_DIR"
-  - "npm install"
+  - "npm install -g yarn --cache-min 999999999"
 env: 
   - "TEST_DIR= my-api"
   - "TEST_DIR= mithril_front-end"
+install: 
+  - yarn
 language: node_js
 node_js: 
-  - 'stable'
+  - stable
 script: 
-   - sudo yarn global add tslint typescript
+  - "sudo yarn global add tslint typescript"
