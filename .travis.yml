@@ -9,4 +9,4 @@ language: node_js
 node_js: 
   - 'stable'
 script: 
-   - tslint -c tslint.json 'src/**/*.ts'
+   - sudo yarn global add tslint typescript
