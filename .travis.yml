@@ -4,6 +4,7 @@ before_script:
   - "npm install"
 env: 
   - "TEST_DIR= my-api"
+  - "TEST_DIR= mithril_front-end"
 language: node_js
 node_js: 
   - "7"
