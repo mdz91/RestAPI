@@ -11,15 +11,69 @@ import m from "mithril";
 /**
  * @author H.J.M van der Heijden
  */
-export class User {
-    public list = [];
-    constructor() {
-        m.request({
-            method: "GET",
-            url: "http://localhost:3000/cats/",
-        })
-        .then((result : any) => {
-           this.list = result;
-        });
-    }
+
+export interface IUser {
+    id: string;
+    name: string;
+    age: number;
+    breed: number;
 }
+
+// tslint:disable-next-line:typedef
+const baseUrl = "http://localhost:3000/cats/";
+
+
+// tslint:disable-next-line:typedef
+export const User = {
+
+    current: {} as IUser,
+    list: [] as IUser[],
+    // tODO: combine to 2d array
+
+
+    new: () => (User.current = {} as IUser),
+
+    create: () => m.request<IUser>({
+        method: "POST",
+        url: baseUrl,
+        data: User.current,
+    })
+    .then((result) => {
+        m.route.set("/cats/" + result.id);
+    }),
+
+    update: () => m.request<IUser>({
+        method: "PUT",
+        url: baseUrl,
+        data: User.current,
+    })
+    .then((result) => {
+        m.route.set("/cats/" + result.id);
+    }),
+
+    load: (id: string) => m.request<IUser>({
+        method: "GET",
+        url: baseUrl + id,
+    })
+    .then((result) => {
+        User.current = result;
+    }),
+
+    loadList: () => m.request<IUser[]>({
+        method: "GET",
+        url: baseUrl,
+    })
+    .then((result) => {
+        User.list = result;
+    }),
+
+    delete: () => m.request<IUser>({
+        method: "DELETE",
+        url: baseUrl,
+        data: User.current,
+    })
+    .then(() => {
+        m.route.set("/cats/");
+    }),
+
+};
