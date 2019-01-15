@@ -10,5 +10,5 @@ node_js:
   - "8"
   - "7"
 script: 
-  - "tslint -p tsconfig.json -c tslint.json"
+  - "tslint */*.js"
   

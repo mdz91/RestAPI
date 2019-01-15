@@ -12,7 +12,7 @@
     "prestart:prod": "rimraf dist && tsc",
     "start:prod": "node dist/app.js",
     "start:hmr": "node dist/server",
-    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "lint": "tslint -p tsconfig.json src/**/**/*.ts",
     "test": "echo \"Error: no test specified\"",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
