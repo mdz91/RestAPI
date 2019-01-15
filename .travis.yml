@@ -10,3 +10,6 @@ before_script:
   - cd $TEST_DIR
   - npm install
   
+ script:
+  - npm run lint
+  
