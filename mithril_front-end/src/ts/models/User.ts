@@ -6,7 +6,7 @@
  * copied verbatim in the file "LICENSE"
  */
 
-import m from "mithril";
+import m from 'mithril';
 
 /**
  * @author H.J.M van der Heijden
@@ -20,8 +20,7 @@ export interface IUser {
 }
 
 // tslint:disable-next-line:typedef
-const baseUrl = "http://localhost:3000/cats/";
-
+const baseUrl = 'http://localhost:3000/cats/';
 
 // tslint:disable-next-line:typedef
 export const User = {
@@ -30,29 +29,28 @@ export const User = {
     list: [] as IUser[],
     // tODO: combine to 2d array
 
-
     new: () => (User.current = {} as IUser),
 
     create: () => m.request<IUser>({
-        method: "POST",
+        method: 'POST',
         url: baseUrl,
         data: User.current,
     })
     .then((result) => {
-        m.route.set("/cats/" + result.id);
+        m.route.set('/cats/' + result.id);
     }),
 
     update: () => m.request<IUser>({
-        method: "PUT",
+        method: 'PUT',
         url: baseUrl,
         data: User.current,
     })
     .then((result) => {
-        m.route.set("/cats/" + result.id);
+        m.route.set('/cats/' + result.id);
     }),
 
     load: (id: string) => m.request<IUser>({
-        method: "GET",
+        method: 'GET',
         url: baseUrl + id,
     })
     .then((result) => {
@@ -60,7 +58,7 @@ export const User = {
     }),
 
     loadList: () => m.request<IUser[]>({
-        method: "GET",
+        method: 'GET',
         url: baseUrl,
     })
     .then((result) => {
@@ -68,12 +66,12 @@ export const User = {
     }),
 
     delete: () => m.request<IUser>({
-        method: "DELETE",
+        method: 'DELETE',
         url: baseUrl,
         data: User.current,
     })
     .then(() => {
-        m.route.set("/cats/");
+        m.route.set('/cats/');
     }),
 
 };

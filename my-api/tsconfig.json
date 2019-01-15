@@ -14,9 +14,6 @@
     "outDir": "./dist",
     "baseUrl": "./src"
   },
-  "files": [
-    "src/main.ts"
-  ],
   "include": [
     "src/**/*"
   ],

@@ -4,7 +4,6 @@
   "description": "Rest API",
   "author": "Mourad Nasser",
   "license": "MIT",
-  "main": "index.js",
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",

@@ -12,5 +12,12 @@
     ],
   "atom": {
     "rewriteTsconfig": false
-  }
+  },
+  "include": [
+    "src/ts/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
 }

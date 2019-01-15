@@ -5,7 +5,6 @@ import {Cat} from 'Interfaces/cat.interface';
 import { CreateCatDto } from './create-cat.dto';
 import {  ApiUseTags, ApiBearerAuth, ApiResponse, ApiOperation } from '@nestjs/swagger';
 import { identity } from 'rxjs';
-import { JoiValidationPipe } from './JoiValidationPipe';
 import { DeleteCatDto } from './delete-cat.dto';
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { UpdateCatDto } from './update-cat.dto';
