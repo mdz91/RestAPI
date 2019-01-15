@@ -10,5 +10,5 @@ node_js:
   - "8"
   - "7"
 script: 
-  - "npm run lint"
+  - "tslint -c tslint.json 'src/**/*.ts'"
   
