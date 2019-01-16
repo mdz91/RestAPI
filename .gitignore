@@ -1,0 +1,9 @@
+.idea/
+.vscode/
+/dist
+/bin
+build/
+tmp/
+temp/
+/node_modules
+./node_modules

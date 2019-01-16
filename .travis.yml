@@ -1,14 +1,8 @@
---- 
-before_script: 
-  - "cd $TEST_DIR"
-  - "npm install"
-env: 
-  - TEST_DIR=mithril_front-end
-  - TEST_DIR=my-api
 language: node_js
-node_js: 
-  - "8"
-  - "7"
+node_js:
+  - '7'
+  - '8'
+install:
+  - npm install
 script: 
-  - "tslint -c tsconfig.json src/**/**/*.ts"
-  
+    - tslint -c tslint.json 'src/**/*.ts'

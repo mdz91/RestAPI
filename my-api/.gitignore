@@ -1,0 +1,10 @@
+.idea/
+.vscode/
+/dist
+/bin
+build/
+tmp/
+temp/
+ormconfig.json
+/node_modules
+./node_modules
